@@ -261,7 +261,9 @@ public class BEMCheckBox: UIControl, CAAnimationDelegate {
             return
         }
 
-        setOn(!on, animated: true)
+        let notifyGroup = group != nil
+
+        setOn(!on, animated: true, notifyGroup: notifyGroup)
         if delegate?.responds(to: #selector(BEMCheckBoxDelegate.didTap(_:))) == true {
             delegate?.didTap?(self)
         }
